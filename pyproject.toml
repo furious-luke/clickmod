@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "clack"
+name = "clickmod"
 version = "0.1.0"
-description = "Click CLI extension."
+description = "Click CLI modules."
 authors = ["Luke Hodkinson <furious.luke@gmail.com>"]
 readme = "README.md"
 license = "MIT"

@@ -10,7 +10,7 @@ from .middleware import RequestMiddleware, SubmitMiddleware, Request
 from .errors import ApiError
 
 
-class ClackApp:
+class ClickModApp:
     name: str
     domain: str
     envname: str
@@ -19,7 +19,7 @@ class ClackApp:
     console: Console
     request_middleware: RequestMiddleware
 
-    ENTRY_POINT_GROUP: str = "clack"
+    ENTRY_POINT_GROUP: str = "clickmod"
 
     def __init__(
             self,
@@ -48,8 +48,8 @@ class ClackApp:
         self.load_plugins()
 
     def load_plugins(self):
-        clack_eps = entry_points(group=self.ENTRY_POINT_GROUP)
-        for ep in clack_eps:
+        clickmod_eps = entry_points(group=self.ENTRY_POINT_GROUP)
+        for ep in clickmod_eps:
             ep_main = ep.load()
             ep_main(self)
 
