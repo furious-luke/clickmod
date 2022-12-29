@@ -18,7 +18,10 @@ class ApiError(ClickException):
         except JSONDecodeError:
             data = {}
         if response.status_code == 401:
-            data = {"code": "UNAUTHORIZED", "message": "Unauthorized."}
+            if data.get('code') is None:
+                data['code'] = 'UNAUTHORIZED'
+            if data.get('message') is None:
+                data['message'] = 'Unauthorized.'
         if response.status_code == 404:
             data = {"code": "NOTFOUND", "message": "Not found."}
         return data
